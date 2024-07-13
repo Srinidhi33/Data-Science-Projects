@@ -1,13 +1,13 @@
-#This code scrapes the data from covid-193 portal using Rapid-API key
+# This code scrapes the data from covid-193 portal using Rapid-API key
 
-import requests
 import pandas as pd
+import requests
 
 url = "https://covid-193.p.rapidapi.com/statistics"
 
 headers = {
-	"x-rapidapi-key": "caea6e5b6cmsh034a11dca5febdap10775djsn4d16e8e92558",
-	"x-rapidapi-host": "covid-193.p.rapidapi.com"
+    "x-rapidapi-key": "caea6e5b6cmsh034a11dca5febdap10775djsn4d16e8e92558",
+    "x-rapidapi-host": "covid-193.p.rapidapi.com"
 }
 
 response = requests.get(url, headers=headers)
@@ -26,7 +26,7 @@ if response.status_code == 200:
 
     # Display the DataFrame
     print(df.head())
-    print(df.shape)# Displaying the first few rows for demonstration
+    print(df.shape)  # Displaying the first few rows for demonstration
 else:
     print(f"Failed to retrieve data: {response.status_code}")
 df.to_csv('covid-193.csv')
